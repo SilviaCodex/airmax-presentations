@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Codexitos – Markdown Template</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/codexitos.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- TITLE SLIDE ─────────────────────────────── -->
+    <section class="cx-title"
+             data-background-image="dist/theme/codexitos-assets/image1.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+# Airmax Connect
+## Weekly Executive Update
+<p class="cx-date">Week 4</p>
+      </textarea>
+    </section>
+
+    <!-- SECTION DIVIDER ─────────────────────────── -->
+    <section class="cx-divider"
+             data-background-image="dist/theme/codexitos-assets/image5.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+## Foundation Completed
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Executive Summary ──────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## Executive Summary
+
+- **Foundation Completed**
+  - Core operational model established across customers, sites, installations, and devices
+  - Role-based access and organizational structure fully defined
+
+- **Platform Usability Improvements**
+  - Enhanced search capabilities and filtering options
+  - Improved navigation across key workflows
+
+- **System Readiness for Next Phase**
+  - Platform prepared for feature expansion and deeper operational workflows
+  - Initial end-to-end flows validated for core entities
+
+> Over the past 4 weeks, the team focused on building a solid foundation to enable scalable feature development moving forward.
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Sprint Velocity ────────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## Week 4 Focus
+
+- **Operational Workflows Enabled**
+  - Branch-based structure and assignment logic implemented
+  - Users, installations, and devices now aligned to operational context
+
+- **Improved Data Interaction**
+  - Search and filtering enhancements across key entities
+  - More intuitive access to operational data
+
+- **Demo Scope**
+  - End-to-end walkthrough of core flows:
+    - Pro → Branch → Installation → Device
+  - Validation of real operational scenarios
+
+> This week focuses on demonstrating how the foundation translates into real operational workflows.
+      </textarea>
+    </section>
+
+    <!-- SECTION DIVIDER ─────────────────────────── -->
+    <section class="cx-divider"
+             data-background-image="dist/theme/codexitos-assets/image5.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+## Section 2
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Milestones ─────────────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## What’s Next
+
+- **Weeks 5–8: Feature Development**
+  - Expansion of operational workflows across entities
+  - Enhanced interactions between Pro, Branch, and Installation layers
+
+- **Platform Maturity**
+  - Strengthening data relationships and validations
+  - Continued improvements in usability and navigation
+
+- **Client Alignment**
+  - Ongoing validation of workflows based on real use cases
+  - Iterative feedback incorporation
+
+> The next phase focuses on building on top of a stable foundation to deliver complete operational capabilities.
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Key Risks ──────────────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## Considerations
+
+<div class="cx-highlight">⚠️ &nbsp;<strong>Dependency Alignment:</strong> Ongoing coordination required across environments and integrations.</div>
+
+<div class="cx-highlight">⚠️ &nbsp;<strong>Workflow Validation:</strong> Continued refinement needed as real operational scenarios are validated.</div>
+
+<div class="cx-highlight">✅ &nbsp;<strong>Mitigation Approach:</strong> Incremental delivery and continuous feedback loops in place.</div>
+      </textarea>
+    </section>
+
+    <!-- CLOSING SLIDE ───────────────────────────── -->
+    <section class="cx-title"
+             data-background-image="dist/theme/codexitos-assets/image1.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+# Thank You
+## Airmax Connect
+<p class="cx-date">Questions & Discussion</p>
+      </textarea>
+    </section>
+
+  </div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<div class="cx-footer">
+  <span class="cx-page"></span>
+  <span> | Brilliant Minds in the Digital World</span>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    controls: true,
+    progress: true,
+    slideNumber: false,
+    plugins: [ RevealMarkdown ]
+  });
+
+  Reveal.on('ready', function () {
+    document.querySelectorAll('.reveal .slides section').forEach(function (section) {
+      if (!section.querySelector('.cx-logo')) {
+        var logo = document.createElement('div');
+        logo.className = 'cx-logo';
+        section.appendChild(logo);
+      }
+    });
+    updateFooter();
+  });
+
+  function updateFooter() {
+    var current      = Reveal.getSlidePastCount() + 1;
+    var currentSlide = Reveal.getCurrentSlide();
+    var footer       = document.querySelector('.cx-footer');
+
+    if (currentSlide && currentSlide.classList.contains('cx-title')) {
+      footer.style.opacity = '0';
+    } else {
+      footer.style.opacity = '1';
+      document.querySelector('.cx-footer .cx-page').textContent =
+        String(current).padStart(2, '0');
+    }
+  }
+
+  Reveal.on('slidechanged', updateFooter);
+</script>
+</body>
+</html>
