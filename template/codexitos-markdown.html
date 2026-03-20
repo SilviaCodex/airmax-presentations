@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Codexitos – Markdown Template</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/codexitos.css">
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- TITLE SLIDE ─────────────────────────────── -->
+    <section class="cx-title"
+             data-background-image="dist/theme/codexitos-assets/image1.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+# Monthly Executive Meeting
+## Sprints 1 &amp; 2
+<p class="cx-date">Month Year</p>
+      </textarea>
+    </section>
+
+    <!-- SECTION DIVIDER ─────────────────────────── -->
+    <section class="cx-divider"
+             data-background-image="dist/theme/codexitos-assets/image5.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+## Section 1
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Executive Summary ──────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## Section 1 – Executive Summary
+
+- **Progress**
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+  - Significant progress across Module A, Module B, and Module C.
+- **Key Challenges**
+  - Backend resource constraints affected delivery of Module B and the Data Pipeline.
+  - Environment availability impacted release-to-production timing.
+- **Next Steps**
+  - Complete remaining endpoints in Sprint 3.
+  - Escalate environment-access request to DevOps by end of week.
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Sprint Velocity ────────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## Sprint Velocity — Sprints 1 &amp; 2
+
+| Sprint    | Planned SP | Delivered SP | Status   |
+|-----------|-----------|-------------|----------|
+| Sprint 1  | 30        | 24          | On Track |
+| Sprint 2  | 32        | 28          | On Track |
+| **Total** | **62**    | **52**      |          |
+
+> Velocity note: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </textarea>
+    </section>
+
+    <!-- SECTION DIVIDER ─────────────────────────── -->
+    <section class="cx-divider"
+             data-background-image="dist/theme/codexitos-assets/image5.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+## Section 2
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Milestones ─────────────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## Upcoming Milestones
+
+- **Sprint 3** — Lorem ipsum dolor sit amet, module integration
+- **Sprint 4** — Consectetur adipiscing, pipeline production deployment
+- **Sprint 5** — End-to-end UAT with client team
+- **Sprint 6** — Performance hardening &amp; release candidate
+      </textarea>
+    </section>
+
+    <!-- CONTENT: Key Risks ──────────────────────── -->
+    <section class="cx-content" data-markdown>
+      <textarea data-template>
+## Key Risks
+
+<div class="cx-highlight">⚠️ &nbsp;<strong>High:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+
+<div class="cx-highlight">⚠️ &nbsp;<strong>Medium:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+
+<div class="cx-highlight">✅ &nbsp;<strong>Mitigated:</strong> Ut enim ad minim veniam, quis nostrud exercitation ullamco.</div>
+      </textarea>
+    </section>
+
+    <!-- CLOSING SLIDE ───────────────────────────── -->
+    <section class="cx-title"
+             data-background-image="dist/theme/codexitos-assets/image1.jpeg"
+             data-background-size="cover"
+             data-markdown>
+      <textarea data-template>
+# Thank You
+## Client Name
+<p class="cx-date">Questions &amp; Discussion</p>
+      </textarea>
+    </section>
+
+  </div><!-- /.slides -->
+</div><!-- /.reveal -->
+
+<div class="cx-footer">
+  <span class="cx-page"></span>
+  <span> | Brilliant Minds in the Digital World</span>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.2,
+    maxScale: 2.0,
+    transition: 'fade',
+    transitionSpeed: 'fast',
+    controls: true,
+    progress: true,
+    slideNumber: false,
+    plugins: [ RevealMarkdown ]
+  });
+
+  Reveal.on('ready', function () {
+    document.querySelectorAll('.reveal .slides section').forEach(function (section) {
+      if (!section.querySelector('.cx-logo')) {
+        var logo = document.createElement('div');
+        logo.className = 'cx-logo';
+        section.appendChild(logo);
+      }
+    });
+    updateFooter();
+  });
+
+  function updateFooter() {
+    var current      = Reveal.getSlidePastCount() + 1;
+    var currentSlide = Reveal.getCurrentSlide();
+    var footer       = document.querySelector('.cx-footer');
+
+    if (currentSlide && currentSlide.classList.contains('cx-title')) {
+      footer.style.opacity = '0';
+    } else {
+      footer.style.opacity = '1';
+      document.querySelector('.cx-footer .cx-page').textContent =
+        String(current).padStart(2, '0');
+    }
+  }
+
+  Reveal.on('slidechanged', updateFooter);
+</script>
+</body>
+</html>
