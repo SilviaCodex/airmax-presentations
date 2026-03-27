@@ -95,3 +95,8 @@ html, body {
     z-index: 10 !important;
   }
 }
+@media print {
+  .cx-logo {
+    display: none !important;
+  }
+}
