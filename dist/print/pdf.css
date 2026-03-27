@@ -1,8 +1,10 @@
+/* PAGE SETUP */
 @page {
   size: landscape;
   margin: 0;
 }
 
+/* BASE RESET */
 html, body {
   width: 100% !important;
   height: 100% !important;
@@ -11,7 +13,10 @@ html, body {
   overflow: visible !important;
 }
 
+/* PRINT MODE */
 @media print {
+
+  /* HTML / BODY */
   html, body {
     width: 100% !important;
     height: auto !important;
@@ -24,6 +29,7 @@ html, body {
     padding: 0 !important;
   }
 
+  /* MAIN CONTAINER */
   .reveal {
     width: 1280px !important;
     height: auto !important;
@@ -31,6 +37,7 @@ html, body {
     background: #fff !important;
   }
 
+  /* SLIDES WRAPPER */
   .reveal .slides {
     position: static !important;
     width: 1280px !important;
@@ -41,6 +48,7 @@ html, body {
     overflow: visible !important;
   }
 
+  /* INDIVIDUAL SLIDES */
   .reveal .slides section {
     position: relative !important;
     display: block !important;
@@ -56,12 +64,20 @@ html, body {
     box-sizing: border-box !important;
   }
 
+  /* FORCE ALL SLIDES VISIBLE */
   .reveal .slides section.present,
   .reveal .slides section.past,
   .reveal .slides section.future {
     display: block !important;
   }
 
+  /* FIX BACKGROUNDS */
+  .reveal .slides section[data-background-image] {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  /* HIDE UI ELEMENTS */
   .reveal .progress,
   .reveal .controls,
   .reveal .slide-number,
@@ -69,33 +85,7 @@ html, body {
     display: none !important;
   }
 
-  .cx-logo {
-    transform: none !important;
-  }
-}
-/* FIX LOGO POSITION IN PDF */
-@media print {
-  .cx-logo {
-    position: absolute !important;
-    top: 28px !important;
-    right: 36px !important;
-    transform: none !important;
-    z-index: 5 !important;
-  }
-
-  .cx-title .cx-logo {
-    top: 34px !important;
-    right: 42px !important;
-  }
-
-  .cx-title h1,
-  .cx-title h2,
-  .cx-title .cx-date {
-    position: relative !important;
-    z-index: 10 !important;
-  }
-}
-@media print {
+  /* REMOVE LOGO FOR CLEAN PDF */
   .cx-logo {
     display: none !important;
   }
