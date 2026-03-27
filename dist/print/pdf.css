@@ -1,0 +1,31 @@
+@media print {
+
+  .reveal {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .reveal .slides {
+    position: static;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible;
+  }
+
+  .reveal section {
+    position: relative !important;
+    page-break-after: always;
+    transform: none !important;
+    height: auto !important;
+  }
+
+  .reveal .slides section {
+    display: block !important;
+  }
+
+  .reveal .progress,
+  .reveal .controls {
+    display: none !important;
+  }
+
+}
