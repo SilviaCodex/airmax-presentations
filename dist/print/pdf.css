@@ -1,31 +1,75 @@
+@page {
+  size: landscape;
+  margin: 0;
+}
+
+html, body {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+}
+
 @media print {
+  html, body {
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
   .reveal {
-    width: 100% !important;
-    height: 100% !important;
+    width: 1280px !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: #fff !important;
   }
 
   .reveal .slides {
-    position: static;
-    width: 100% !important;
+    position: static !important;
+    width: 1280px !important;
     height: auto !important;
-    overflow: visible;
-  }
-
-  .reveal section {
-    position: relative !important;
-    page-break-after: always;
+    left: 0 !important;
+    top: 0 !important;
     transform: none !important;
-    height: auto !important;
+    overflow: visible !important;
   }
 
   .reveal .slides section {
+    position: relative !important;
+    display: block !important;
+    width: 1280px !important;
+    height: 720px !important;
+    min-height: 720px !important;
+    margin: 0 auto 20px auto !important;
+    padding: 0 !important;
+    transform: none !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .reveal .slides section.present,
+  .reveal .slides section.past,
+  .reveal .slides section.future {
     display: block !important;
   }
 
   .reveal .progress,
-  .reveal .controls {
+  .reveal .controls,
+  .reveal .slide-number,
+  .cx-footer {
     display: none !important;
   }
 
+  .cx-logo {
+    transform: none !important;
+  }
 }
